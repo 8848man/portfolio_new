@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071522">
+  <meta name="description" content="김락원의 경험을 잇는 인터랙티브 별자리 포트폴리오. 공식 경력과 개인 프로젝트를 시간의 흐름 속에서 살펴보세요.">
+  <title>김락원 — 경험을 잇는 별자리</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Hahmlet:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="portfolio-data.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <svg class="symbol-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <symbol id="constellation-mark" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width=".8" opacity=".27" stroke-dasharray="72 13 31 148" transform="rotate(-35 50 50)"/>
+      <circle cx="50" cy="50" r="31" fill="none" stroke="currentColor" stroke-width=".75" opacity=".3"/>
+      <path d="M50 4 C53 33 67 47 96 50 C67 53 53 67 50 96 C47 67 33 53 4 50 C33 47 47 33 50 4Z" fill="currentColor"/>
+      <path d="M50 20 C52 39 61 48 80 50 C61 52 52 61 50 80 C48 61 39 52 20 50 C39 48 48 39 50 20Z" fill="currentColor" opacity=".65" transform="rotate(45 50 50)"/>
+      <circle cx="50" cy="50" r="3.5" fill="#f4f7ed"/>
+      <circle cx="82" cy="17" r="2.2" fill="currentColor"/>
+      <circle cx="17" cy="77" r="1.6" fill="currentColor"/>
+    </symbol>
+  </svg>
+  <a class="skip-link" href="#experience">경험 목록으로 건너뛰기</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="김락원 포트폴리오 맨 위로"><svg class="brand-mark" aria-hidden="true" focusable="false"><use href="#constellation-mark"/></svg><span>KIM RAKWON</span></a>
+    <span class="header-index">A PORTFOLIO IN CONSTELLATIONS <i> / </i> 2026</span>
+    <a class="header-link" href="#experience">경험 살펴보기 <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="top">
+    <section class="prologue" aria-labelledby="intro-title">
+      <div class="prologue-orbit orbit-one" aria-hidden="true"></div>
+      <div class="prologue-orbit orbit-two" aria-hidden="true"></div>
+      <div class="prologue-inner">
+        <p class="eyebrow"><span class="eyebrow-rule"></span> AN INTERACTIVE PORTFOLIO <span class="eyebrow-rule"></span></p>
+        <h1 id="intro-title"><span class="hero-title-line"><span class="hero-title-piece">작은 경험을 잇다.</span></span><span class="hero-title-line"><span class="hero-title-piece"><em>하나의 별자리가 되다.</em></span></span></h1>
+        <p class="intro-copy">현장에서 부딪히고, 만들면서 발견한 것들.<br>흩어져 있던 점들이 이어질 때 저의 방향이 보입니다.</p>
+        <p class="intro-signature">DEV · BUILDER <span class="signature-line"></span> 김락원</p>
+      </div>
+      <a class="scroll-cue" href="#constellation" aria-label="별자리 탐색 시작"><span>SCROLL TO TRACE THE STARS</span><span class="scroll-icon" aria-hidden="true">↓</span></a>
+      <div class="prologue-corner left">01 / THE JOURNEY</div><div class="prologue-corner right">2022 — NOW</div>
+    </section>
+
+    <section class="constellation-scroll" id="constellation" aria-labelledby="sky-title">
+      <div class="sky-stage">
+        <div class="sky-grain" aria-hidden="true"></div>
+        <div class="stage-top"><span class="stage-label"><svg class="stage-mark" aria-hidden="true" focusable="false"><use href="#constellation-mark"/></svg><span id="stagePhase">THE FIRST POINT</span></span><span class="stage-counter"><span id="stageCount">00</span> / <span id="totalCount">00</span> EXPERIENCES</span></div>
+        <div class="stage-heading"><p class="eyebrow">A MAP OF EXPERIENCES</p><h2 id="sky-title">경험은 점으로 남고,<br><em>연결은 방향이 됩니다.</em></h2><p>별을 선택하면 업무 기록을, 선을 가리키거나 선택하면 이어진 생각을 볼 수 있습니다.</p></div>
+        <div class="star-chart" id="starChart" aria-label="시간에 따라 드러나는 경험의 별자리">
+          <div class="ambient-stars" id="ambientStars" aria-hidden="true"></div>
+          <svg class="connection-layer" id="connectionLayer" viewBox="0 0 1000 600" preserveAspectRatio="none" aria-label="경험 사이의 관계"></svg>
+          <div class="stars-layer" id="starsLayer"></div>
+          <div class="chart-axis"><span>2022</span><span>2023</span><span>2024</span><span>2025</span><span>2026</span></div>
+          <div class="chart-caption"><span class="chart-caption-index">FIG. 01</span><span>시간을 따라 나타나는 경험 · 그 사이에서 발견한 연결</span></div>
+        </div>
+        <aside class="skill-trace" id="skillTrace" aria-label="경험에 따라 변화하는 스킬 그래프"><button class="skill-toggle" id="skillToggle" type="button" aria-expanded="false" aria-controls="skillContent"><span>SKILL TRACE</span><span id="skillEvent">경험이 쌓이면 변합니다</span><b>↗</b></button><div class="skill-content" id="skillContent"><p>10점 만점 자기평가 · 6점은 중상급입니다. 스킬을 가리키거나 선택하면 관련 별이 강조됩니다.</p><div id="skillRows"></div></div></aside>
+        <div class="stage-bottom"><div class="legend"><span><i class="legend-dot official"></i> 공식 이력</span><span><i class="legend-dot personal"></i> 개인·팀 프로젝트</span></div><div class="progress-track" aria-hidden="true"><span id="progressFill"></span></div><span class="progress-label" id="progressLabel">0%</span></div>
+        <aside class="relation-popover" id="relationPopover" aria-live="polite" hidden><button id="relationClose" type="button" aria-label="관계 설명 닫기">×</button><span id="relationLabel">RELATION</span><h3 id="relationTitle"></h3><p id="relationBody"></p><small>확인된 영향과 같은 맥락의 경험을 설명에서 구분합니다.</small></aside>
+      </div>
+    </section>
+
+    <section class="experience-section" id="experience" aria-labelledby="experience-title">
+      <div class="section-top"><span>02 / THE POINTS</span><span>THE RECORD, WITHOUT GUESSWORK</span></div>
+      <div class="experience-heading"><p class="eyebrow">AFTER THE CONSTELLATION</p><h2 id="experience-title">별 하나에는<br><em>하나의 실제 경험.</em></h2><p>최근의 경험부터, 어떤 문제를 만났고 무엇을 만들었으며 다음에는 어떤 질문이 남았는지 기록했습니다.</p></div>
+      <div class="experience-layout"><div class="experience-intro"><svg class="intro-asterisk" aria-hidden="true" focusable="false"><use href="#constellation-mark"/></svg><p>BLUE / OFFICIAL<br>GOLD / PROJECT</p></div><ol class="experience-list" id="experienceList"></ol></div>
+    </section>
+    <section class="closing" aria-labelledby="closing-title"><svg class="closing-orbit" aria-hidden="true" focusable="false"><use href="#constellation-mark"/></svg><p class="eyebrow">THE MAP IS STILL GROWING</p><h2 id="closing-title">다음 경험은,<br><em>어떤 별이 될까요?</em></h2><p>김락원 · Dev / Builder</p><a href="#top">처음으로 돌아가기 <span aria-hidden="true">↑</span></a></section>
+  </main>
+  <dialog class="detail-dialog" id="detailDialog" aria-labelledby="dialogTitle"><div class="dialog-head"><span id="dialogGroup">EXPERIENCE</span><button id="dialogClose" type="button" aria-label="상세 설명 닫기">×</button></div><div class="dialog-scroll"><div class="dialog-hero"><p id="dialogDate"></p><h2 id="dialogTitle"></h2><p id="dialogSummary"></p></div><div class="dialog-grid"><section><span>01 / PROBLEM</span><h3>어떤 문제였나</h3><p id="dialogProblem"></p></section><section><span>02 / SOLUTION</span><h3>어떻게 풀었나</h3><p id="dialogSolution"></p></section></div><section class="dialog-metrics"><span>03 / EVIDENCE</span><h3>확인할 수 있는 수치와 기록</h3><ul id="dialogMetrics"></ul></section><section class="dialog-extra" id="dialogExtra" hidden><span>04 / IMPLEMENTATION</span><h3>구현 기록</h3><p id="dialogExtraText"></p></section><div class="model-gallery" id="modelGallery" hidden><div class="model-heading"><span>ILLUSTRATIVE MODELS / NOT MEASURED RESULTS</span><h3>MaChat의 읽기량과 AI 호출 설계</h3><p>아래 값은 가정을 바꿔 보는 설계 비교입니다. 실측 성능이나 실제 비용을 뜻하지 않습니다.</p></div><div class="model-grid"><div class="model-card"><h4>채팅 첫 진입의 문서 읽기</h4><p>3개 방에 500개 메시지가 있다고 가정. 각 방에서 처음 30개만 불러옵니다.</p><div class="model-bars"><div><span>전체 불러오기</span><b id="chatBaseline">1,500</b><i style="--bar:100%"></i></div><div><span>초기 30개씩</span><b id="chatOptimized">90</b><i class="gold" style="--bar:6%"></i></div></div><strong id="chatSaving">초기 문서 읽기 94% 감소(모델)</strong><small>이후 스크롤에 따른 추가 읽기, 캐시 적중률, 네트워크 요청 수는 포함하지 않습니다.</small></div><div class="model-card"><h4>마스터 Voca의 호출 재사용</h4><p>사용자마다 20개 단어를 조회하고, 전체에 100개의 고유 단어가 있다고 가정합니다.</p><label for="userRange">가정 사용자 수 <output id="userOutput">100명</output></label><input id="userRange" type="range" min="10" max="1000" step="10" value="100"><div class="model-bars"><div><span>매번 AI 추론</span><b id="vocaBaseline">2,000</b><i style="--bar:100%"></i></div><div><span>마스터 Voca 재사용</span><b id="vocaOptimized">100</b><i class="gold" style="--bar:5%"></i></div></div><strong id="vocaSaving">AI 호출 95% 감소(모델)</strong><small>마스터에 없는 단어, 새 단어의 선처리 비용과 실제 캐시 적중률은 별도입니다.</small></div></div></div><div class="dialog-foot"><a id="dialogLink" href="#" target="_blank" rel="noopener noreferrer" hidden>서비스 보기 <span aria-hidden="true">↗</span></a></div></div></dialog>
+</body>
+</html>
