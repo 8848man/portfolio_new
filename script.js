@@ -95,6 +95,19 @@ function openDialog(id){
   $('#dialogExtra').querySelector('span').textContent=item.insight?'04 / INSIGHT':'04 / IMPLEMENTATION';
   $('#dialogExtra').querySelector('h3').textContent=item.insight?'무엇을 배웠나':'구현 기록';
   $('#dialogExtraText').textContent=extraContent||'';
+  let access=$('#dialogAccess');
+  if(item.access){
+    if(!access){
+      access=document.createElement('section');access.id='dialogAccess';access.className='dialog-access';
+      access.innerHTML='<span>05 / TEST ACCESS</span><h3>테스트 계정</h3><p>공개 테스트 서버에서 사용할 수 있는 계정입니다.</p><dl><div><dt>ID</dt><dd id="accessId"></dd></div><div><dt>PW</dt><dd id="accessPassword"></dd></div></dl>';
+      $('#modelGallery').before(access);
+    }
+    $('#accessId').textContent=item.access.id;
+    $('#accessPassword').textContent=item.access.password;
+    access.querySelector('span').textContent=`${extraContent?'05':'04'} / TEST ACCESS`;
+    access.querySelector('p').textContent=item.link?'테스트 서버에서 사용할 수 있는 계정입니다.':'프로젝트를 체험할 때 사용할 수 있는 계정입니다.';
+    access.hidden=false;
+  }else if(access)access.hidden=true;
   $('#modelGallery').hidden=!item.showModels;
   const link=$('#dialogLink');link.hidden=!item.link;
   link.parentElement.hidden=!item.link;
