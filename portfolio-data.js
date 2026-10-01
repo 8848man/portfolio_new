@@ -26,6 +26,14 @@ window.PORTFOLIO = {
     pactfive: {intro:'의뢰인이 프로젝트를 등록하고 프리랜서와 조건을 맞춰 계약·정산까지 이어가도록 설계한 매칭 플랫폼입니다.'},
     vencubator: {intro:'1인 빌더가 아이디어를 한 문장으로 시작해 고객 문제를 배우고, 인터뷰 질문·관찰·다음 결정을 차례로 쌓는 창업 학습 체험판입니다.'}
   },
+  screenshots: {
+    daily: ['daily_school/ds_1.png','daily_school/ds_2.png','daily_school/ds_3.png','daily_school/ds_4.png','daily_school/ds_5.png','daily_school/ds_6.png'],
+    machat: ['ma_chat/1.png','ma_chat/2.png','ma_chat/3.png','ma_chat/4.png','ma_chat/5.png','ma_chat/6.png','ma_chat/7.png','ma_chat/8.png','ma_chat/9.png'],
+    sentinel: ['sentinel/sentinel_1.png','sentinel/sentinel_2.png','sentinel/sentinel_3.png'],
+    hypora: ['hypora/hypora_1.png','hypora/hypora_2.png','hypora/hypora_3.png','hypora/hypora_4.png','hypora/hypora_5.png'],
+    persoracle: ['persoracle/1.png','persoracle/2.png','persoracle/3.png','persoracle/4.png','persoracle/5.png','persoracle/6.png'],
+    vencubator: ['vencubator/대표이미지_와이드_1600x900.png','vencubator/상세_01_한문장으로_시작.png','vencubator/상세_02_질문_만들기.png','vencubator/상세_03_3분_학습.png','vencubator/상세_04_실행_과제.png','vencubator/상세_05_관찰_방향전환.png']
+  },
   relations: [
     {from:'qa',to:'potmis',kind:'work',title:'품질 확인 → 서비스 운영',insight:'홈페이지 QA에서 화면과 상호작용을 점검한 뒤, 같은 회사에서 실제 고객의 문의와 서비스 운영 문제를 다루는 업무로 범위가 넓어졌습니다. 직접적인 프로젝트 인과관계라기보다는 업무 이력의 연결입니다.'},
     {from:'potmis',to:'datacenter',kind:'work',title:'서비스 운영 → 인프라 점검',insight:'서비스를 모니터링하고 예외 상황에 대응하던 업무와, 그 서비스를 지탱하는 Linux 서버를 정기 점검한 업무가 같은 회사 이력에서 이어집니다. 특정 사건이 점검 업무를 촉발했다는 뜻은 아닙니다.'},

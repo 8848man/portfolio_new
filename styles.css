@@ -119,3 +119,21 @@
 .dialog-service>span{font:10px var(--mono);letter-spacing:.08em;color:#5f89a0}
 .dialog-service h3{font:500 25px var(--serif);letter-spacing:-.04em;margin:12px 0 13px}
 .dialog-service .service-intro{font:14px/1.8 var(--sans);color:#345766;margin:0;max-width:710px}
+.dialog-screens{border-top:1px solid #acbfc6;padding:27px 0 31px}
+.dialog-screens[hidden]{display:none}
+.screen-heading{display:flex;align-items:baseline;gap:14px;margin-bottom:17px}
+.screen-heading>span:first-child{font:10px var(--mono);letter-spacing:.08em;color:#5f89a0}
+.screen-heading h3{font:500 25px var(--serif);letter-spacing:-.04em;margin:0}
+.screen-counter{margin-left:auto;font:11px var(--mono);color:#607b88}
+.screen-stage{display:grid;grid-template-columns:34px minmax(0,1fr) 34px;gap:9px;align-items:center}
+.screen-stage>button{width:34px;height:42px;border:1px solid #afc3ca;background:#f2f4f0;color:#365e73;cursor:pointer;font:20px var(--sans)}
+.screen-stage>button:hover:not(:disabled),.screen-stage>button:focus-visible{background:#d9e8ea;outline-color:#507c93}
+.screen-stage>button:disabled{opacity:.35;cursor:default}
+.screen-frame{height:min(48vw,420px);min-height:260px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#10222d;border:1px solid #b3c4c8}
+.screen-open{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+.screen-image{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+.screen-dots{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin:16px 44px 0}
+.screen-dot{width:10px;height:10px;padding:0;border:1px solid #7798a6;border-radius:50%;background:transparent;cursor:pointer}
+.screen-dot[aria-current="true"]{background:#437895;border-color:#437895}
+.screen-dot:focus-visible{outline:2px solid #315c76;outline-offset:3px}
+@media(max-width:760px){.screen-heading{gap:9px}.screen-heading h3{font-size:21px}.screen-stage{grid-template-columns:27px minmax(0,1fr) 27px;gap:5px}.screen-stage>button{width:27px;height:40px;font-size:17px}.screen-frame{height:50svh;min-height:220px;max-height:440px}.screen-dots{margin:14px 30px 0}}

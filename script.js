@@ -80,6 +80,27 @@ function showRelation(index,group){
 function hideRelation(){relationPopover.hidden=true;svg.querySelectorAll('.relation').forEach(line=>line.classList.remove('is-active'));}
 function closeRelation(){pinnedRelation=null;hideRelation();}
 
+let screenImages=[];
+let screenIndex=0;
+let screenProject='';
+function renderScreen(){
+  const gallery=$('#dialogScreens');
+  const image=gallery.querySelector('.screen-image');
+  const source=screenImages[screenIndex];
+  image.src=encodeURI(`screenshots/${source}`);
+  image.alt=`${screenProject} 프로젝트 화면 ${screenIndex+1}`;
+  gallery.querySelector('.screen-open').href=image.src;
+  gallery.querySelector('.screen-counter').textContent=`${screenIndex+1} / ${screenImages.length}`;
+  gallery.querySelector('.screen-prev').disabled=screenIndex===0;
+  gallery.querySelector('.screen-next').disabled=screenIndex===screenImages.length-1;
+  gallery.querySelectorAll('.screen-dot').forEach((dot,index)=>{
+    dot.setAttribute('aria-current',index===screenIndex?'true':'false');
+  });
+}
+function moveScreen(step){
+  screenIndex=Math.max(0,Math.min(screenImages.length-1,screenIndex+step));
+  renderScreen();
+}
 function openDialog(id){
   const item=node(id);if(!item)return;
   lastFocus=document.activeElement;
@@ -98,7 +119,40 @@ function openDialog(id){
   if(serviceData){
     service.querySelector('.service-intro').textContent=serviceData.intro;
   }
-  const stepOffset=serviceData?1:0;
+  let gallery=$('#dialogScreens');
+  if(!gallery){
+    gallery=document.createElement('section');gallery.id='dialogScreens';gallery.className='dialog-screens';
+    gallery.setAttribute('aria-label','프로젝트 화면');
+    gallery.innerHTML='<div class="screen-heading"><span>02 / SCREENS</span><h3>프로젝트 화면</h3><span class="screen-counter" aria-live="polite"></span></div><div class="screen-stage"><button class="screen-prev" type="button" aria-label="이전 이미지">←</button><div class="screen-frame"><a class="screen-open" href="#" target="_blank" rel="noopener noreferrer" aria-label="현재 이미지를 새 탭에서 크게 보기"><img class="screen-image" alt=""></a></div><button class="screen-next" type="button" aria-label="다음 이미지">→</button></div><div class="screen-dots" aria-label="이미지 선택"></div>';
+    service.after(gallery);
+    gallery.querySelector('.screen-prev').addEventListener('click',()=>moveScreen(-1));
+    gallery.querySelector('.screen-next').addEventListener('click',()=>moveScreen(1));
+    gallery.querySelector('.screen-dots').addEventListener('click',event=>{
+      const dot=event.target.closest('button[data-index]');
+      if(!dot)return;
+      screenIndex=Number(dot.dataset.index);renderScreen();
+    });
+    gallery.addEventListener('keydown',event=>{
+      if(event.key==='ArrowLeft'||event.key==='ArrowRight'){
+        event.preventDefault();moveScreen(event.key==='ArrowLeft'?-1:1);
+      }
+    });
+    let startX=0;
+    gallery.querySelector('.screen-frame').addEventListener('touchstart',event=>{startX=event.changedTouches[0].clientX;},{passive:true});
+    gallery.querySelector('.screen-frame').addEventListener('touchend',event=>{
+      const delta=event.changedTouches[0].clientX-startX;
+      if(Math.abs(delta)>50)moveScreen(delta<0?1:-1);
+    },{passive:true});
+  }
+  screenImages=window.PORTFOLIO.screenshots?.[item.id]||[];
+  screenProject=item.title;
+  gallery.hidden=!screenImages.length;
+  if(screenImages.length){
+    screenIndex=0;
+    gallery.querySelector('.screen-dots').innerHTML=screenImages.map((_,index)=>`<button type="button" class="screen-dot" data-index="${index}" aria-label="${index+1}번째 이미지 보기"></button>`).join('');
+    renderScreen();
+  }
+  const stepOffset=(serviceData?1:0)+(screenImages.length?1:0);
   $('#dialogProblem').parentElement.querySelector('span').textContent=`0${1+stepOffset} / PROBLEM`;
   $('#dialogSolution').parentElement.querySelector('span').textContent=`0${2+stepOffset} / SOLUTION`;
   $('.dialog-metrics>span').textContent=`0${3+stepOffset} / EVIDENCE`;
