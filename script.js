@@ -87,12 +87,28 @@ function openDialog(id){
   $('#dialogDate').textContent=item.date;
   $('#dialogTitle').textContent=item.title;
   $('#dialogSummary').textContent=item.summary;
+  const serviceData=window.PORTFOLIO.services?.[item.id];
+  let service=$('#dialogService');
+  if(!service){
+    service=document.createElement('section');service.id='dialogService';service.className='dialog-service';
+    service.innerHTML='<span>01 / SERVICE</span><h3>어떤 서비스인가</h3><p class="service-intro"></p><p class="service-verified"></p>';
+    $('.dialog-hero').after(service);
+  }
+  service.hidden=!serviceData;
+  if(serviceData){
+    service.querySelector('.service-intro').textContent=serviceData.intro;
+    service.querySelector('.service-verified').textContent=`직접 확인한 범위 · ${serviceData.verified}`;
+  }
+  const stepOffset=serviceData?1:0;
+  $('#dialogProblem').parentElement.querySelector('span').textContent=`0${1+stepOffset} / PROBLEM`;
+  $('#dialogSolution').parentElement.querySelector('span').textContent=`0${2+stepOffset} / SOLUTION`;
+  $('.dialog-metrics>span').textContent=`0${3+stepOffset} / EVIDENCE`;
   $('#dialogProblem').textContent=item.problem;
   $('#dialogSolution').textContent=item.solution;
   $('#dialogMetrics').innerHTML=item.metrics.map(metric=>`<li>${esc(metric)}</li>`).join('');
   const extraContent=item.insight||item.extra;
   $('#dialogExtra').hidden=!extraContent;
-  $('#dialogExtra').querySelector('span').textContent=item.insight?'04 / INSIGHT':'04 / IMPLEMENTATION';
+  $('#dialogExtra').querySelector('span').textContent=`0${4+stepOffset} / ${item.insight?'INSIGHT':'IMPLEMENTATION'}`;
   $('#dialogExtra').querySelector('h3').textContent=item.insight?'무엇을 배웠나':'구현 기록';
   $('#dialogExtraText').textContent=extraContent||'';
   let access=$('#dialogAccess');
@@ -104,7 +120,7 @@ function openDialog(id){
     }
     $('#accessId').textContent=item.access.id;
     $('#accessPassword').textContent=item.access.password;
-    access.querySelector('span').textContent=`${extraContent?'05':'04'} / TEST ACCESS`;
+    access.querySelector('span').textContent=`0${(extraContent?5:4)+stepOffset} / TEST ACCESS`;
     access.querySelector('p').textContent=item.link?'테스트 서버에서 사용할 수 있는 계정입니다.':'프로젝트를 체험할 때 사용할 수 있는 계정입니다.';
     access.hidden=false;
   }else if(access)access.hidden=true;
