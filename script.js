@@ -91,13 +91,12 @@ function openDialog(id){
   let service=$('#dialogService');
   if(!service){
     service=document.createElement('section');service.id='dialogService';service.className='dialog-service';
-    service.innerHTML='<span>01 / SERVICE</span><h3>어떤 서비스인가</h3><p class="service-intro"></p><p class="service-verified"></p>';
+    service.innerHTML='<span>01 / SERVICE</span><h3>어떤 서비스인가</h3><p class="service-intro"></p>';
     $('.dialog-hero').after(service);
   }
   service.hidden=!serviceData;
   if(serviceData){
     service.querySelector('.service-intro').textContent=serviceData.intro;
-    service.querySelector('.service-verified').textContent=`직접 확인한 범위 · ${serviceData.verified}`;
   }
   const stepOffset=serviceData?1:0;
   $('#dialogProblem').parentElement.querySelector('span').textContent=`0${1+stepOffset} / PROBLEM`;

@@ -119,4 +119,3 @@
 .dialog-service>span{font:10px var(--mono);letter-spacing:.08em;color:#5f89a0}
 .dialog-service h3{font:500 25px var(--serif);letter-spacing:-.04em;margin:12px 0 13px}
 .dialog-service .service-intro{font:14px/1.8 var(--sans);color:#345766;margin:0;max-width:710px}
-.dialog-service .service-verified{font:11px/1.7 var(--sans);color:#6c8187;margin:17px 0 0;padding:11px 14px;background:#eaf0ed;border-left:2px solid #87a9ad}
