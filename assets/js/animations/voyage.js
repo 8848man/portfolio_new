@@ -17,7 +17,7 @@
     {theme:'pactfive',title:'PactFive',date:'2026.08 — 09',year:'2026',copy:'5인 팀의 작업 경계와 통합 흐름을 설계하고 운영했습니다.',href:'#case-pactfive',side:1,y:10},
     {theme:'vencubator',title:'Vencubator',date:'2026.09 시작',year:'2026',copy:'앞선 실험을 게임화된 창업 학습 경험으로 연결했습니다.',href:'#experiments',side:-1,y:-8}
   ];
-  planetLayer.innerHTML = projects.map(item => `<div class="voyage-planet" data-theme="${item.theme}" aria-hidden="true"><span class="voyage-planet-ring"></span><span class="voyage-planet-core"></span><span class="voyage-planet-label">${item.title}</span></div>`).join('');
+  planetLayer.innerHTML = projects.map(item => `<div class="voyage-planet" data-theme="${item.theme}" aria-hidden="true"><img class="voyage-planet-image" src="assets/images/planets/${item.theme}.png" alt="" decoding="async"><span class="voyage-planet-label">${item.title}</span></div>`).join('');
   const planets = [...planetLayer.children];
   const stars = Array.from({length:46}, (_, index) => {
     const element = document.createElement('i');
@@ -59,19 +59,25 @@
       const u=position-i;
       if(u<-.28||u>1.18||p>.94){planet.style.opacity='0';return;}
       const near=Math.max(0,u);
+      const pass=clamp((near-.48)/.58);
       const scale=.12+Math.pow(clamp((u+.2)/1.2),2)*3.15;
-      const x=projects[i].side*(2+Math.pow(near,1.35)*(innerWidth<760?47:56));
-      const y=projects[i].y+near*7;
+      const x=projects[i].side*(2+Math.pow(near,1.35)*(innerWidth<760?47:56))*(1+pass*pass*.12);
+      const y=(projects[i].y+near*7)*(1+pass*pass*.16);
       const opacity=clamp((u+.28)/.28)*(1-clamp((u-.87)/.31));
       planet.style.transform=`translate(-50%,-50%) translate3d(${x.toFixed(2)}vw,${y.toFixed(2)}vh,0) scale(${scale.toFixed(3)})`;
+      planet.style.setProperty('--warp-x',(1+pass*pass*.22).toFixed(3));
+      planet.style.setProperty('--warp-y',(1-pass*pass*.08).toFixed(3));
+      planet.style.setProperty('--warp-skew',`${(projects[i].side*pass*pass*5).toFixed(2)}deg`);
       planet.style.opacity=opacity.toFixed(3);
       planet.style.zIndex=String(Math.round(scale*10));
     });
     stars.forEach(({element,seed,angle})=>{
-      const depth=(p*5.6+seed)%1, radius=Math.pow(depth,1.7)*82;
-      element.style.width=`${(1+depth*26).toFixed(1)}px`;
-      element.style.opacity=(.12+depth*.7).toFixed(2);
-      element.style.transform=`translate3d(${(Math.cos(angle)*radius).toFixed(2)}vw,${(Math.sin(angle)*radius*1.2).toFixed(2)}vh,0) rotate(${(angle*180/Math.PI).toFixed(1)}deg)`;
+      const depth=(p*5.6+seed)%1;
+      const radius=Math.pow(depth,1.65)*82*(1+Math.pow(depth,3)*.28);
+      element.style.width=`${(2+Math.pow(depth,2.6)*94).toFixed(1)}px`;
+      element.style.height=`${(.7+Math.pow(depth,2)*1.8).toFixed(1)}px`;
+      element.style.opacity=(.14+Math.pow(depth,1.5)*.8).toFixed(2);
+      element.style.transform=`translate3d(${(Math.cos(angle)*radius).toFixed(2)}vw,${(Math.sin(angle)*radius*1.2).toFixed(2)}vh,0) rotate(${(angle*180/Math.PI).toFixed(1)}deg) translateX(-100%)`;
     });
   }
   function schedule(){if(!frame)frame=requestAnimationFrame(render);}

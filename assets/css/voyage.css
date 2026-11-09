@@ -6,21 +6,20 @@
 .voyage-space:before{content:"";position:absolute;inset:0;opacity:.34;background-image:radial-gradient(circle at 18% 22%,#e7f7ff 0 1px,transparent 2px),radial-gradient(circle at 78% 29%,#d8edff 0 1px,transparent 2px),radial-gradient(circle at 39% 71%,#fff 0 .8px,transparent 2px);background-size:173px 197px,281px 239px,337px 311px}
 .voyage-nebula{position:absolute;inset:-30%;background:radial-gradient(ellipse at 49% 42%,#1c426063,transparent 34%),radial-gradient(ellipse at 65% 62%,#9e78451a,transparent 25%);filter:blur(34px);transform:scale(var(--nebula-scale,1));opacity:var(--nebula-opacity,.7)}
 .voyage-starfield,.voyage-planets{position:absolute;inset:0}
-.voyage-streak{position:absolute;left:50%;top:48%;height:1px;display:block;border-radius:99px;background:#c9e6f4;box-shadow:0 0 8px #b2dffd;transform-origin:left center;will-change:transform,opacity}
+.voyage-streak{position:absolute;left:50%;top:48%;height:1px;display:block;border-radius:99px;background:linear-gradient(90deg,transparent,#9ec8dc88 45%,#e7f8ff);box-shadow:0 0 8px #b2dffd88;transform-origin:right center;will-change:transform,opacity}
+.voyage-streak:after{content:"";position:absolute;right:0;top:50%;width:2px;height:2px;border-radius:50%;background:#f5fcff;transform:translateY(-50%);box-shadow:0 0 7px #d7f4ff}
 .voyage-vanishing-point{position:absolute;left:50%;top:47%;width:60vmax;height:60vmax;border:1px solid #a6d1e51a;border-radius:50%;transform:translate(-50%,-50%) scale(var(--tunnel-scale,.2));box-shadow:0 0 0 8vmax #a6d1e506,0 0 0 18vmax #a6d1e504;opacity:var(--tunnel-opacity,.65)}
 .voyage-planet{position:absolute;left:50%;top:47%;width:clamp(150px,19vw,280px);aspect-ratio:1;transform:translate(-50%,-50%) scale(.12);opacity:0;will-change:transform,opacity;filter:drop-shadow(0 25px 42px #0009)}
 .voyage-planet:before{content:"";position:absolute;inset:-17%;border-radius:50%;background:radial-gradient(circle,var(--planet-glow),transparent 66%);filter:blur(12px)}
-.voyage-planet-core{position:absolute;inset:0;border-radius:50%;overflow:hidden;background:radial-gradient(circle at 27% 22%,#ffffff9e 0%,transparent 13%),radial-gradient(circle at 31% 30%,var(--planet-light) 0%,var(--planet-mid) 44%,var(--planet-dark) 73%,#03080f 100%);box-shadow:inset -20px -26px 42px #000b,inset 8px 9px 18px #fff2,0 0 34px var(--planet-glow)}
-.voyage-planet-core:after{content:"";position:absolute;inset:-20%;border-radius:50%;opacity:.27;background:repeating-linear-gradient(165deg,transparent 0 15px,#ffffff27 16px 19px,transparent 20px 39px),radial-gradient(ellipse at 63% 50%,#111a2377 0 12%,transparent 16%);transform:rotate(-12deg)}
-.voyage-planet-ring{position:absolute;left:-26%;top:39%;width:152%;height:23%;border:4px solid var(--planet-ring);border-radius:50%;transform:rotate(-21deg);box-shadow:0 0 16px var(--planet-glow);opacity:.75}
+.voyage-planet-image{position:relative;display:block;width:100%;height:100%;object-fit:contain;transform:scaleX(var(--warp-x,1)) scaleY(var(--warp-y,1)) skewY(var(--warp-skew,0deg));filter:drop-shadow(0 0 16px var(--planet-glow));backface-visibility:hidden}
 .voyage-planet-label{position:absolute;left:50%;top:109%;transform:translateX(-50%);white-space:nowrap;text-align:center;font:500 10px var(--mono);letter-spacing:.18em;color:#d9e9ee;text-shadow:0 2px 12px #020a12}
-.voyage-planet[data-theme="daily"]{--planet-light:#c0ebed;--planet-mid:#5e9eb7;--planet-dark:#28415c;--planet-glow:#6dbedc6b;--planet-ring:#9fc8d5}
-.voyage-planet[data-theme="machat"]{--planet-light:#ffedb8;--planet-mid:#c99361;--planet-dark:#634955;--planet-glow:#e7ad6973;--planet-ring:#f0cf8b}
-.voyage-planet[data-theme="sentinel"]{--planet-light:#b6e1e7;--planet-mid:#54859b;--planet-dark:#1c314a;--planet-glow:#71b9d477;--planet-ring:#86c6d8}
-.voyage-planet[data-theme="hypora"]{--planet-light:#d4c5ff;--planet-mid:#7b82cb;--planet-dark:#303260;--planet-glow:#918ce770;--planet-ring:#a9a7ed}
-.voyage-planet[data-theme="persoracle"]{--planet-light:#a7ebd4;--planet-mid:#4a9b90;--planet-dark:#24535c;--planet-glow:#69d7ae66;--planet-ring:#a3dfc0}
-.voyage-planet[data-theme="pactfive"]{--planet-light:#e8c7a4;--planet-mid:#ad7a65;--planet-dark:#513c4a;--planet-glow:#cf98786b;--planet-ring:#d9b18e}
-.voyage-planet[data-theme="vencubator"]{--planet-light:#e0efb4;--planet-mid:#85b181;--planet-dark:#34565b;--planet-glow:#a5d78a75;--planet-ring:#cfdf9f}
+.voyage-planet[data-theme="daily"]{--planet-glow:#6dbedc6b}
+.voyage-planet[data-theme="machat"]{--planet-glow:#e7ad6973}
+.voyage-planet[data-theme="sentinel"]{--planet-glow:#71b9d477}
+.voyage-planet[data-theme="hypora"]{--planet-glow:#918ce770}
+.voyage-planet[data-theme="persoracle"]{--planet-glow:#69d7ae66}
+.voyage-planet[data-theme="pactfive"]{--planet-glow:#cf98786b}
+.voyage-planet[data-theme="vencubator"]{--planet-glow:#a5d78a75}
 .voyage-top{position:absolute;z-index:12;top:104px;left:clamp(24px,5vw,76px);right:clamp(24px,5vw,76px);display:flex;align-items:center;justify-content:space-between;gap:20px;font:10px var(--mono);letter-spacing:.13em;color:#a7c2d0}
 .voyage-top>span{display:flex;align-items:center;gap:11px}.voyage-top i{width:6px;height:6px;border:1px solid #f3c879;border-radius:50%;box-shadow:0 0 12px #f3c879}
 .voyage-top a{padding:8px 0;border-bottom:1px solid #7d9bab;color:#dae8e8;white-space:nowrap}.voyage-top a span{color:#f3c879}
