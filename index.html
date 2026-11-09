@@ -13,10 +13,12 @@
   <link rel="stylesheet" href="assets/css/site.css">
   <link rel="stylesheet" href="assets/css/motion.css">
   <link rel="stylesheet" href="assets/css/tetrahedron.css">
+  <link rel="stylesheet" href="assets/css/voyage.css">
   <script src="assets/js/data/projects.js" defer></script>
   <script src="assets/js/components/dom.js" defer></script>
   <script src="assets/js/components/project-card.js" defer></script>
   <script src="assets/js/pages/home.js" defer></script>
+  <script src="assets/js/animations/voyage.js" defer></script>
   <script src="assets/js/animations/reveal.js" defer></script>
   <script src="assets/js/animations/counters.js" defer></script>
   <script src="assets/js/animations/constellation.js" defer></script>
@@ -32,7 +34,21 @@
   </header>
 
   <main id="main">
-    <section class="hero" id="top" aria-labelledby="hero-title">
+    <section class="time-voyage" id="top" aria-label="프로젝트 시간 여행">
+      <div class="voyage-stage">
+        <div class="voyage-space" aria-hidden="true"><div class="voyage-nebula"></div><div class="voyage-starfield" id="voyageStarfield"></div><div class="voyage-planets" id="voyagePlanets"></div><div class="voyage-vanishing-point"></div></div>
+        <div class="voyage-top"><span><i></i> KIM RAKWON / TIME FLIGHT</span><a href="#hero">인트로 건너뛰기 <span aria-hidden="true">↗</span></a></div>
+        <ol class="voyage-a11y-list"><li>2024년 초, Daily School</li><li>2024년 하반기, MaChat</li><li>2026년 3월, Sentinel</li><li>2026년 6월, Hypora</li><li>2026년 7월, Persoracle</li><li>2026년 8월, PactFive</li><li>2026년 9월, Vencubator</li></ol>
+        <div class="voyage-opening"><p>AN INTERACTIVE JOURNEY / 2024—2026</p><div class="voyage-title">시간을 가로질러,<br><em>경험의 궤도로.</em></div><p class="voyage-opening-copy">프로젝트 하나가 행성이 되고,<br>다음 질문으로 나아가는 길이 됩니다.</p></div>
+        <div class="voyage-record" id="voyageRecord" aria-live="off"><span id="voyageRecordMeta">01 / 07 · 2024</span><strong id="voyageRecordTitle">Daily School</strong><p id="voyageRecordCopy">첫 Flutter 팀 프로젝트에서 공통 구조를 배웠습니다.</p><a id="voyageRecordLink" href="#case-daily">이 경험 살펴보기 <span aria-hidden="true">↗</span></a></div>
+        <div class="voyage-finale" id="voyageFinale"><span>JOURNEY COMPLETE / 07 WAYPOINTS</span><strong>스쳐 간 점들이<br><em>하나의 방향이 됩니다.</em></strong><a href="#hero">포트폴리오로 들어가기 <span aria-hidden="true">↘</span></a></div>
+        <div class="voyage-reticle" aria-hidden="true"><span></span><i></i><span></span></div>
+        <div class="voyage-cockpit" aria-hidden="true"><div class="voyage-cockpit-left"></div><div class="voyage-cockpit-center"><span>◈</span><small>FORWARD / TIME AXIS</small></div><div class="voyage-cockpit-right"></div></div>
+        <div class="voyage-bottom"><span class="voyage-year" id="voyageYear">2024</span><div class="voyage-progress" role="progressbar" aria-label="시간 여행 진행도" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="voyageProgressFill"></span></div><span class="voyage-count" id="voyageCount">00 / 07</span></div>
+        <p class="voyage-scroll-hint">SCROLL TO TRAVEL <span aria-hidden="true">↓</span></p>
+      </div>
+    </section>
+    <section class="hero" id="hero" aria-labelledby="hero-title">
       <div class="hero-grid" aria-hidden="true"></div><div class="hero-glow" aria-hidden="true"></div>
       <div class="hero-inner wrap">
         <div class="hero-copy">
