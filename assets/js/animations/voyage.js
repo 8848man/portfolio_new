@@ -54,7 +54,7 @@
       section.querySelector('#voyageRecordLink').href=item.href;
       section.querySelector('#voyageYear').textContent=item.year;
     }
-    section.querySelector('#voyageCount').textContent=`${String(Math.min(7,Math.floor(q*7))).padStart(2,'0')} / 07`;
+    section.querySelector('#voyageCount').textContent=`${String(p<.1?0:index+1).padStart(2,'0')} / 07`;
     planets.forEach((planet,i)=>{
       const u=position-i;
       if(u<-.28||u>1.18||p>.94){planet.style.opacity='0';return;}

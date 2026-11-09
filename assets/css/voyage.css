@@ -1,5 +1,5 @@
 .site-header{position:fixed;z-index:30;background:#07131eb8;backdrop-filter:blur(16px)}
-.time-voyage{position:relative;height:560svh;background:#020a12;scroll-margin-top:0}
+.time-voyage{position:relative;height:880svh;background:#020a12;scroll-margin-top:0}
 .voyage-a11y-list{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .voyage-stage{position:sticky;top:0;height:100svh;min-height:580px;overflow:hidden;isolation:isolate;background:radial-gradient(ellipse at 50% 44%,#143149 0%,#071725 38%,#020912 78%);color:#edf4ef}
 .voyage-space{position:absolute;inset:0;z-index:0;isolation:isolate;overflow:hidden;pointer-events:none}
