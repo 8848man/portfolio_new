@@ -48,6 +48,7 @@
     if(index!==active){
       active=index;
       const item=projects[index];
+      stage.classList.toggle('is-planet-left',item.side<0);
       section.querySelector('#voyageRecordMeta').textContent=`${String(index+1).padStart(2,'0')} / 07 · ${item.date}`;
       section.querySelector('#voyageRecordTitle').textContent=item.title;
       section.querySelector('#voyageRecordCopy').textContent=item.copy;
